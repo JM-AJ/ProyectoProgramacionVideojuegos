@@ -1,20 +1,51 @@
+using System.Diagnostics;
+using System.Threading;
 using UnityEngine;
 
-public class MovimientoJugador : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public int velocidad = 10;
+    public float speed = 5f;
+    public float jumpForce = 5f; // Fuerza del salto
+    public float rayLength = 0.5f; // Longitud del rayo para detectar el suelo
+    public LayerMask groundLayer; // Capa del suelo para detecci n
 
-    Rigidbody2D jugador; 
+    private Rigidbody2D rb;
+    private bool isGrounded;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        jugador = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        jugador.linearVelocity = new Vector2(Input.GetAxis("Horizontal") * velocidad, jugador.linearVelocity.y*Time.deltaTime);
+        float moveInput = Input.GetAxis("Horizontal");
+        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
+
+        isGrounded = IsGrounded();
+
+        if (isGrounded && Input.GetButtonDown("Jump"))
+            Jump();
     }
+
+    void Jump()
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+    }
+
+    bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayLength, groundLayer);
+        UnityEngine.Debug.DrawRay(transform.position, Vector2.down * rayLength, Color.red);
+
+        return hit.collider != null;
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * rayLength);
+    }
+
 }
+

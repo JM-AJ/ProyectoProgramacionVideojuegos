@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
-    public float jumpForce = 5f; // Fuerza del salto
-    public float rayLength = 0.5f; // Longitud del rayo para detectar el suelo
+    public float jumpForce = 6f; // Fuerza del salto
+    public float rayLength = 0.6f; // Longitud del rayo para detectar el suelo
     public LayerMask groundLayer; // Capa del suelo para detecci n
 
     private Rigidbody2D rb;

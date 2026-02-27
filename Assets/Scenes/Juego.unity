@@ -1023,6 +1023,7 @@ GameObject:
   - component: {fileID: 861819352}
   - component: {fileID: 861819351}
   - component: {fileID: 861819350}
+  - component: {fileID: 861819355}
   m_Layer: 0
   m_Name: Personaje
   m_TagString: Untagged
@@ -1042,7 +1043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48264e0e883192409edffc49c488fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  animator: {fileID: 861819355}
+  velocidad: 5
   jumpForce: 6
   rayLength: 0.6
   groundLayer:
@@ -1109,17 +1111,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.028013274, y: -0.0051126666}
+  m_Offset: {x: -0.00035771914, y: 0.015780449}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.4359293, y: 0.3909631}
     oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1519204, y: 0.1938878}
+  m_Size: {x: 0.12280901, y: 0.16138741}
   m_EdgeRadius: 0
 --- !u!212 &861819353
 SpriteRenderer:
@@ -1191,6 +1193,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &861819355
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861819349}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d014ad7098f04e244b66710201ecae8a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &968891703
 GameObject:
   m_ObjectHideFlags: 0

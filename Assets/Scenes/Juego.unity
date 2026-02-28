@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 193207072}
   - component: {fileID: 193207074}
   m_Layer: 8
-  m_Name: Cake
+  m_Name: moneda
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1141,7 +1141,7 @@ GameObject:
   - component: {fileID: 583323266}
   - component: {fileID: 583323265}
   m_Layer: 8
-  m_Name: Cookie
+  m_Name: moneda
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1265,7 +1265,7 @@ GameObject:
   - component: {fileID: 611176229}
   - component: {fileID: 611176228}
   m_Layer: 8
-  m_Name: Coffee
+  m_Name: moneda
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1501,7 +1501,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   animator: {fileID: 861819355}
-  objectCounterText: {fileID: 0}
+  objectCounterText: {fileID: 1685021464}
 --- !u!50 &861819351
 Rigidbody2D:
   serializedVersion: 5
@@ -2081,7 +2081,7 @@ GameObject:
   - component: {fileID: 1553893277}
   - component: {fileID: 1553893276}
   m_Layer: 8
-  m_Name: Jam
+  m_Name: moneda
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2250,7 +2250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ...
+  m_text: 'Moneda: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2342,7 +2342,7 @@ GameObject:
   - component: {fileID: 1850212213}
   - component: {fileID: 1850212212}
   m_Layer: 8
-  m_Name: Chicken
+  m_Name: moneda
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -21,18 +21,14 @@ public class PlayerController : MonoBehaviour
 
     private Dictionary<string, int> collectedObjects = new Dictionary<string, int>()
     {
-        { "Cake", 0 },
-        { "Chicken", 0 },
-        { "Coffee", 0 },
-        { "Jam", 0 },
-        { "Cookie", 0 }
+        { "moneda", 0 }
     };
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        //UpdateObjectCounterUI();
+        UpdateObjectCounterUI();
     }
 
     void Update()
@@ -86,29 +82,25 @@ public class PlayerController : MonoBehaviour
         return hit.collider != null;
     }
 
-    //void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Collectible"))
-    //    {
-    //        string objectName = collision.gameObject.name;
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Collectible"))
+        {
+            string objectName = collision.gameObject.name;
 
-    //        if (collectedObjects.ContainsKey(objectName))
-    //        {
-    //            collectedObjects[objectName]++;
-    //            UpdateObjectCounterUI();
-    //        }
-    //        Destroy(collision.gameObject);
-    //    }
-    //}
+            if (collectedObjects.ContainsKey(objectName))
+            {
+                collectedObjects[objectName]++;
+                UpdateObjectCounterUI();
+            }
+            Destroy(collision.gameObject);
+        }
+    }
 
-    //void UpdateObjectCounterUI()
-    //{
-    //    objectCounterText.text = $"Cake: {collectedObjects["Cake"]} | " +
-    //                             $"Chicken: {collectedObjects["Chicken"]} | " +
-    //                             $"Coffee: {collectedObjects["Coffee"]} | " +
-    //                             $"Jam: {collectedObjects["Jam"]} | " +
-    //                             $"Cookie: {collectedObjects["Cookie"]}";
-    //}
+    void UpdateObjectCounterUI()
+    {
+        objectCounterText.text = $"moneda: {collectedObjects["moneda"]}";
+    }
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

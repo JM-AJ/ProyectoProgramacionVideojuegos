@@ -1,53 +1,78 @@
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator animator;
-    public float velocidad = 5f;
+    public float speed = 5f;
     public float jumpForce = 6f; // Fuerza del salto
-    public float rayLength = 0.6f; // Longitud del rayo para detectar el suelo
-    public LayerMask groundLayer; // Capa del suelo para deteccion
+    public float rayLength = 0.33f; // Longitud del rayo para detectar el suelo
+    public LayerMask groundLayer; // Capa del suelo para detecci n
 
     private Rigidbody2D rb;
     private bool isGrounded;
+    private bool facingRight = true;
+    public Animator animator;
+
+
+    public TextMeshProUGUI objectCounterText;
+
+    private Dictionary<string, int> collectedObjects = new Dictionary<string, int>()
+    {
+        { "Cake", 0 },
+        { "Chicken", 0 },
+        { "Coffee", 0 },
+        { "Jam", 0 },
+        { "Cookie", 0 }
+    };
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        //UpdateObjectCounterUI();
     }
-    
-    
 
     void Update()
-    //Velocidad del movimiento horizontal, multiplicada por el
-    //tiempo para que sea consistente en diferentes velocidades de fotogramas    
     {
         float moveInput = Input.GetAxis("Horizontal");
-
-    rb.linearVelocity = new Vector2(moveInput * velocidad, rb.linearVelocity.y);
-
-    // Animación
-    animator.SetFloat("movement", Mathf.Abs(moveInput));
-
-    // Giro 
-    if (moveInput > 0) transform.localScale = new Vector3(6.0518f, 5.6918f, 1f);
-    else if (moveInput < 0) transform.localScale = new Vector3(-6.0518f, 5.6918f, 1f);
-
-        //Salto del personaje, se activa al presionar la barra espaciadora
-        //y solo si el personaje esta en el suelo
-       
-        rb.linearVelocity = new Vector2(moveInput * velocidad, rb.linearVelocity.y);
-
+        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
+        
         isGrounded = IsGrounded();
 
-        animator.SetBool("isGrounded", isGrounded);
+
 
         if (isGrounded && Input.GetButtonDown("Jump"))
             Jump();
+
+
+        //animator.SetFloat("movimiento", moveInput * speed);  
+        animator.SetBool("saltando", !isGrounded);
+        animator.SetFloat("VerticalVelocity", rb.linearVelocity.y);
+        animator.SetFloat("movimiento", Mathf.Abs(moveInput));
+
+        if (isGrounded && Input.GetButtonDown("Jump"))
+            Jump();
+
+        if (moveInput > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (moveInput < 0 && facingRight)
+        {
+            Flip();
+        }
     }
-    
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
     void Jump()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
@@ -61,6 +86,29 @@ public class PlayerController : MonoBehaviour
         return hit.collider != null;
     }
 
+    //void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Collectible"))
+    //    {
+    //        string objectName = collision.gameObject.name;
+
+    //        if (collectedObjects.ContainsKey(objectName))
+    //        {
+    //            collectedObjects[objectName]++;
+    //            UpdateObjectCounterUI();
+    //        }
+    //        Destroy(collision.gameObject);
+    //    }
+    //}
+
+    //void UpdateObjectCounterUI()
+    //{
+    //    objectCounterText.text = $"Cake: {collectedObjects["Cake"]} | " +
+    //                             $"Chicken: {collectedObjects["Chicken"]} | " +
+    //                             $"Coffee: {collectedObjects["Coffee"]} | " +
+    //                             $"Jam: {collectedObjects["Jam"]} | " +
+    //                             $"Cookie: {collectedObjects["Cookie"]}";
+    //}
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

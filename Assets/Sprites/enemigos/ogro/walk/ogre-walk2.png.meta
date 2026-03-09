@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ef8f25a0eb80e2542a46f059f31f4d35
+guid: fb3d5c78b34617b4e8dd49088a50e5cf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5488370903067918852
-    second: moneda_0
+      213: 4702189864036488031
+    second: ogre-walk2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 3500
+  spritePixelsToUnits: 45
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: moneda_0
+      name: ogre-walk2_0
       rect:
         serializedVersion: 2
-        x: 102
-        y: 59
-        width: 1716
-        height: 1802
+        x: 42
+        y: 0
+        width: 55
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40204f8f14c9a2c40800000000000000
-      internalID: 5488370903067918852
+      spriteID: f535650a4c8814140800000000000000
+      internalID: 4702189864036488031
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      moneda_0: 5488370903067918852
+      ogre-walk2_0: 4702189864036488031
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

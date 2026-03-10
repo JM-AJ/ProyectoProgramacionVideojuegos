@@ -1,8 +1,7 @@
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading;
-using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -37,12 +36,6 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
         
         isGrounded = IsGrounded();
-
-
-
-        if (isGrounded && Input.GetButtonDown("Jump"))
-            Jump();
-
 
         //animator.SetFloat("movimiento", moveInput * speed);  
         animator.SetBool("saltando", !isGrounded);
@@ -100,6 +93,19 @@ public class PlayerController : MonoBehaviour
     void UpdateObjectCounterUI()
     {
         objectCounterText.text = $"moneda: {collectedObjects["moneda"]}";
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        Debug.Log("¡Has muerto!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     void OnDrawGizmos()
     {

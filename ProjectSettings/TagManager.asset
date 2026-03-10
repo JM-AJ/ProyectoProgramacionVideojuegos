@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Collectible
+  - Enemies
+  - Enemy
+  - player
   layers:
   - Default
   - TransparentFX
@@ -15,8 +18,8 @@ TagManager:
   - plataforma
   - pared
   - Collectibles
-  - 
-  - 
+  - player
+  - Enemies
   - 
   - 
   - 
@@ -41,6 +44,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: 
+    uniqueID: 1213257459
     locked: 0
   m_RenderingLayers:
   - Default

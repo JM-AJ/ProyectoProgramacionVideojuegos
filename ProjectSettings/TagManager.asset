@@ -45,8 +45,26 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: 
+  - name: fondo
     uniqueID: 1213257459
+    locked: 0
+  - name: coleccionables
+    uniqueID: 2576676267
+    locked: 0
+  - name: enemigos
+    uniqueID: 2272997659
+    locked: 0
+  - name: pared
+    uniqueID: 2460951465
+    locked: 0
+  - name: plataforma
+    uniqueID: 1993328065
+    locked: 0
+  - name: suelo
+    uniqueID: 3894718779
+    locked: 0
+  - name: jugador
+    uniqueID: 2350561853
     locked: 0
   m_RenderingLayers:
   - Default
